@@ -1,0 +1,22 @@
+div.table {
+  display:table;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+div.row {
+  display: table-row;
+}
+
+div.cell {
+  display: table-cell;
+  border-collapse: collapse;
+  border: 3px solid white;
+  background-color: #B00100;
+  color: #ffffff;
+  text-align: center;
+}
+
