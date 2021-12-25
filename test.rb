@@ -1,32 +1,17 @@
 # frozen_string_literal: true
 
-require './main'
+require_relative './main'
 require 'minitest/autorun'
-# test.rb
-# TestExec is responsible for checking the right calculation of method solve
-class TestExec < Minitest::Test
-  # check for right method execution
-  def test_zero
-    x = 0
-    result = 0.0
-    assert_in_delta(result, solve(x), 10**-3)
+
+# Main test
+class TestMain < Minitest::Test
+  def setup
+    @key = '123'
+    @input = (0..3).map { (0...8).map { rand('a'.ord..'z'.ord).chr }.join }.join(' ')
   end
 
-  def test_minus1
-    x = -1
-    result = 0.0
-    assert_in_delta(result, solve(x), 10**-3)
-  end
-
-  def test_minus5
-    x = -5
-    result = 0.0+0.0037922517750714865i
-    assert_in_delta(result, solve(x), 10**-3)
-  end
-
-  def test_ninty
-    x = 90
-    result = 6.791149133926649e-07
-    assert_in_delta(result, solve(x), 10**-3)
+  def test_crypt
+    @result = decrypt(crypt(@input, @key), @key)
+    assert_equal(@result, @input)
   end
 end
