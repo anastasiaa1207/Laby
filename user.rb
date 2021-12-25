@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-load 'main.rb'
-puts 'enter Radius: '
-r = gets.to_f
-puts 'enter eps: '
-eps = gets.to_f
-puts 'result '
-puts(solve(eps: eps, rad: r))
+require_relative 'main'
+
+result = scale(b: 10) { |x| x * Math.sin(x) }
+puts "M for f(x) = x*sin(x) equals #{result}"
+
+func = lambda { |x| Math.tan(x) }
+result = scale(b: 10, &func)
+puts "M for f(x) = tg(x) equals #{result}"

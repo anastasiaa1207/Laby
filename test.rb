@@ -3,22 +3,16 @@
 require './main'
 require 'minitest/autorun'
 # test.rb
-# TestExec is responsible for checking the right calculation of method solve
+# TestExec is responsible for checking the right calculation of method scale
 class TestExec < Minitest::Test
-  # check for right method execution
-  def test_one_001
-    r = 1
-    eps = 0.001
-    result = [3.141277250932773, 6]
-    assert(result, solve(eps: eps, rad: r))
+  def test_1
+    res = scale(b: 10) { |x| x * Math.sin(x) }
+    assert_in_delta(12, res, 1)
   end
 
-  def test_one_0001
-    r = 1
-    eps = 0.001
-    result = [3.1415729403670913, 8]
-    assert(result, solve(eps: eps, rad: r))
+  def test_2
+    func = ->(x) { Math.tan(x) }
+    res = scale(b: 10, lambd: func)
+    assert_in_delta(6, res, 1)
   end
-
 end
-
