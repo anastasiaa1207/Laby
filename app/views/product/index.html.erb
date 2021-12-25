@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+  <thead>
+    <th>Название</th>
+    <th>Артикул</th>
+    <th>Экран</th>
+    <th>Процессор</th>
+    <th>Память встроенная</th>
+    <th>Операционка</th>
+    <th>Разрешение экрана</th>
+    <th>Цена</th>
+  </thead>
+  <tbody>
+    <% @products.each do |prod| %>
+      <tr>
+        <td><%= prod.name %></td>
+        <td><%= prod.prod_id %></td>
+        <td><%= prod.screen %></td>
+        <td><%= prod.cpu %></td>
+        <td><%= prod.disk %></td>
+        <td><%= prod.os %></td>
+        <td><%= prod.resolution %></td>
+        <td><%= prod.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
